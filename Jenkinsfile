@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Constrói a imagem Docker
-                    echo "Construindo a imagem Docker..."
+                    dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", ".")
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Executa a imagem Docker na rede 'jenkins'
-                    echo "Executando a imagem Docker na rede 'jenkins'..."
+                    docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
                 }
             }
         }
