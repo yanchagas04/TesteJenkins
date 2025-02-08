@@ -62,7 +62,7 @@ pipeline {
             steps {
                 script {
                     // Exibe os containers em execução
-                    sh 'docker ps'
+                    sh 'docker inspect jenkins-teste'
                 }
             }
         }
