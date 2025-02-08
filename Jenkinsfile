@@ -23,14 +23,14 @@ pipeline {
                 }
             }
         }
-        // stage('Build Docker Image') {
-        //     steps {
-        //         script {
-        //             // Constrói a imagem Docker
-        //             dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", ".")
-        //         }
-        //     }
-        // }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Constrói a imagem Docker
+                    dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", "-f .")
+                }
+            }
+        }
         // stage('Run Docker Image') {
         //     steps {
         //         script {
