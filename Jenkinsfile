@@ -46,7 +46,7 @@ pipeline {
             steps {
                 script {
                     // Executa a imagem Docker na rede 'jenkins'
-                    docker.image("jenkins-teste").run('--network jenkins')
+                    docker.image("jenkins-teste").run('--network jenkins -p 8000:8000')
                 }
             }
         }
