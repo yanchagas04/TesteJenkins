@@ -66,13 +66,5 @@ pipeline {
                 }
             }
         }
-        stage('Show IP') {
-            steps {
-                script {
-                    // Exibe as redes
-                    sh "docker inspect --format {{ Networks.jenkins.IPAddress }} jenkins-teste"
-                }
-            }
-        }
     }
 }
