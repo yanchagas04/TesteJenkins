@@ -62,7 +62,7 @@ pipeline {
             steps {
                 script {
                     // Exibe os containers em execução
-                    sh "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' jenkins-teste"
+                    sh 'docker inspect jenkins-teste'
                 }
             }
         }
