@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     // Exibe as redes
-                    sh 'docker inspect jenkins-teste'
+                    sh "docker inspect --format '{{ .NetworkSettings.Networks.jenkins.IPAddress }}' jenkins-teste"
                 }
             }
         }
