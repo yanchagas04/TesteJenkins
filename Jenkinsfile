@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    
-    environment {
-        DOCKER_TLS_VERIFY = '0' // Desabilita a verificação TLS
-        DOCKER_HOST = 'tcp://your-docker-host:2376' // Altere para o seu host Docker
-    }
 
     stages {
         stage('Clone Repository') {
