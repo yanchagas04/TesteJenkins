@@ -26,13 +26,13 @@ pipeline {
                 }
             }
         }
-        // stage('Run Docker Image') {
-        //     steps {
-        //         script {
-        //             // Executa a imagem Docker na rede 'jenkins'
-        //             docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
-        //         }
-        //     }
-        // }
+        stage('Run Docker Image') {
+            steps {
+                script {
+                    // Executa a imagem Docker na rede 'jenkins'
+                    docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
+                }
+            }
+        }
     }
 }
