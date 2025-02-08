@@ -15,21 +15,29 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
+        stage('Check Docker Version') {
             steps {
                 script {
-                    // Constrói a imagem Docker
-                    dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", ".")
+                    // Verifica a versão do Docker
+                    sh 'docker --version'
                 }
             }
         }
-        stage('Run Docker Image') {
-            steps {
-                script {
-                    // Executa a imagem Docker na rede 'jenkins'
-                    docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
-                }
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         script {
+        //             // Constrói a imagem Docker
+        //             dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", ".")
+        //         }
+        //     }
+        // }
+        // stage('Run Docker Image') {
+        //     steps {
+        //         script {
+        //             // Executa a imagem Docker na rede 'jenkins'
+        //             docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
+        //         }
+        //     }
+        // }
     }
 }
