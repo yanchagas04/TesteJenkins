@@ -54,7 +54,7 @@ pipeline {
             steps {
                 script {
                     // Exibe as redes
-                    sh 'docker network ls'
+                    sh 'docker network inspect 8345d4af37d0'
                 }
             }
         }
