@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Constrói a imagem Docker
-                    sh 'docker build -t jenkins-teste .'
+                    docker.build("jenkins-teste", '.')
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Executa a imagem Docker na rede 'jenkins'
-                    docker.image("jenkins-teste:v${env.BUILD_ID}").run('--network jenkins')
+                    docker.image("jenkins-teste").run('--network jenkins')
                 }
             }
         }
