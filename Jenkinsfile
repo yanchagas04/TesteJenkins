@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Constrói a imagem Docker
-                    sh 'docker build -t jenkins-teste:v${env.BUILD_ID} .'
+                    sh 'docker build -t jenkins-teste .'
                 }
             }
         }
