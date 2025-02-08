@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Cria a rede 'jenkins'
-                    sh 'docker network create jenkins'
+                    sh 'docker network create jenkins || true'
                 }
             }
         }
@@ -39,6 +39,14 @@ pipeline {
                 script {
                     // Executa a imagem Docker na rede 'jenkins'
                     docker.image("jenkins-teste").run('--network jenkins')
+                }
+            }
+        }
+        stage('Show Containers') {
+            steps {
+                script {
+                    // Exibe os containers em execução
+                    sh 'docker ps'
                 }
             }
         }
