@@ -42,6 +42,22 @@ pipeline {
                 }
             }
         }
+        stage('Remove Containers') {
+            steps {
+                script {
+                    // Exibe os containers em execução
+                    sh 'docker rm -f $(docker ps -aq) || true'
+                }
+            }
+        }
+        stage('Show Network') {
+            steps {
+                script {
+                    // Exibe as redes
+                    sh 'docker network ls'
+                }
+            }
+        }
         stage('Show Containers') {
             steps {
                 script {
