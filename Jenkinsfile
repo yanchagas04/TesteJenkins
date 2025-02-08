@@ -34,19 +34,19 @@ pipeline {
                 }
             }
         }
-        stage('Run Docker Image') {
-            steps {
-                script {
-                    // Executa a imagem Docker na rede 'jenkins'
-                    docker.image("jenkins-teste").run('--network jenkins')
-                }
-            }
-        }
         stage('Remove Containers') {
             steps {
                 script {
                     // Exibe os containers em execução
                     sh 'docker rm -f $(docker ps -aq) || true'
+                }
+            }
+        }
+        stage('Run Docker Image') {
+            steps {
+                script {
+                    // Executa a imagem Docker na rede 'jenkins'
+                    docker.image("jenkins-teste").run('--network jenkins')
                 }
             }
         }
