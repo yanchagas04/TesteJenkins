@@ -10,6 +10,14 @@ pipeline {
                 }
             }
         }
+        stage('Create Network') {
+            steps {
+                script {
+                    // Cria a rede 'jenkins'
+                    sh 'docker network create jenkins'
+                }
+            }
+        }
         stage('Check Docker Version') {
             steps {
                 script {
