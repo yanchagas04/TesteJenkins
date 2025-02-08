@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Constrói a imagem Docker
-                    dockerapp = docker.build("jenkins-teste:v${env.BUILD_ID}", "-f .")
+                    sh 'docker build -t jenkins-teste:v${env.BUILD_ID} .'
                 }
             }
         }
