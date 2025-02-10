@@ -14,9 +14,9 @@ pipeline {
             steps {
                 script {
                     // Cria a rede 'jenkins'
-                    sh 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
-                    sh 'sudo apt-get update'
-                    sh 'sudo apt-get install -y docker-ce docker-ce-cli containerd.io'
+                    sh 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
+                    sh 'apt-get update'
+                    sh 'apt-get install -y docker-ce docker-ce-cli containerd.io'
                     sh 'docker network create jenkins || true'
                 }
             }
